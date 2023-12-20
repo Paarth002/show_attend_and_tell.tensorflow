@@ -29,7 +29,7 @@ class Caption_Generator():
         self.batch_size = batch_size
 
         with tf.device("/cpu:0"):
-            self.Wemb = tf.Variable(tf.random_uniform([n_words, dim_embed], -1.0, 1.0), name='Wemb')
+            self.Wemb = tf.Variable(tf.random.uniform([n_words, dim_embed], -1.0, 1.0), name='Wemb')
 
         self.init_hidden_W = self.init_weight(dim_ctx, dim_hidden, name='init_hidden_W')
         self.init_hidden_b = self.init_bias(dim_hidden, name='init_hidden_b')
