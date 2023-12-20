@@ -242,7 +242,7 @@ def train(pretrained_model_path=pretrained_model_path): # 전에 학습하던게
     learning_rate=0.001
     n_words = len(wordtoix)
     feats = np.load(feat_path)
-    maxlen = np.max( map(lambda x: len(x.split(' ')), captions) )
+    maxlen = np.max( captions.map(lambda x: len(x.split(' ')) ) )
     print(maxlen, type(maxlen))
 
     sess = tfc.InteractiveSession()
