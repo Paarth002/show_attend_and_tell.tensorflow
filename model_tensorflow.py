@@ -99,7 +99,7 @@ class Caption_Generator():
             print('labels', labels.shape)
             print('indices', indices.shape)
             concated = tf.concat([indices, labels], axis=1)
-            onehot_labels = tf.sparse_to_dense( concated, tf.pack([self.batch_size, self.n_words]), 1.0, 0.0)
+            onehot_labels = tfc.sparse_to_dense( concated, tf.pack([self.batch_size, self.n_words]), 1.0, 0.0)
 
             context_encode = context_encode + \
                  tf.expand_dims(tf.matmul(h, self.hidden_att_W), 1) + \
