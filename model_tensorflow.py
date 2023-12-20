@@ -226,7 +226,7 @@ ctx_shape=[196,512]
 pretrained_model_path = './model/model-8'
 #############################
 ###### 잡다한 Parameters #####
-annotation_path = './data/annotations.pickle'
+annotation_path = './data/annotations.pkl'
 feat_path = './data/feats.npy'
 model_path = './model/'
 #############################
