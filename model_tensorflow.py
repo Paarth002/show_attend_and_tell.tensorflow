@@ -68,9 +68,9 @@ class Caption_Generator():
         return initial_hidden, initial_memory
 
     def build_model(self):
-        context = tf.placeholder("float32", [self.batch_size, self.ctx_shape[0], self.ctx_shape[1]])
-        sentence = tf.placeholder("int32", [self.batch_size, self.n_lstm_steps])
-        mask = tf.placeholder("float32", [self.batch_size, self.n_lstm_steps])
+        context = tfc.placeholder("float32", [self.batch_size, self.ctx_shape[0], self.ctx_shape[1]])
+        sentence = tfc.placeholder("int32", [self.batch_size, self.n_lstm_steps])
+        mask = tfc.placeholder("float32", [self.batch_size, self.n_lstm_steps])
 
         h, c = self.get_initial_lstm(tf.reduce_mean(context, 1))
 
@@ -137,7 +137,7 @@ class Caption_Generator():
         return loss, context, sentence, mask
 
     def build_generator(self, maxlen):
-        context = tf.placeholder("float32", [1, self.ctx_shape[0], self.ctx_shape[1]])
+        context = tfc.placeholder("float32", [1, self.ctx_shape[0], self.ctx_shape[1]])
         h, c = self.get_initial_lstm(tf.reduce_mean(context, 1))
 
         context_encode = tf.matmul(tf.squeeze(context), self.image_att_W)
