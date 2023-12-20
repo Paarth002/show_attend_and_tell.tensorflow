@@ -232,8 +232,8 @@ model_path = './model/'
 #############################
 
 
-def train(pretrained_model_path=pretrained_model_path, annotation_path=annotation_path): # 전에 학습하던게 있으면 초기값 설정.
-    print(annotations_path)
+def train(pretrained_model_path=pretrained_model_path): # 전에 학습하던게 있으면 초기값 설정.
+    print(annotation_path)
     annotation_data = pd.read_pickle(annotation_path)
     captions = annotation_data['caption'].values
     wordtoix, ixtoword, bias_init_vector = preProBuildWordVocab(captions)
