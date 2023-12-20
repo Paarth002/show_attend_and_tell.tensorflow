@@ -237,6 +237,7 @@ def train(pretrained_model_path=pretrained_model_path): # 전에 학습하던게
     print(annotation_path)
     annotation_data = pd.read_pickle(annotation_path)
     captions = annotation_data['caption'].values
+    print(captions.shape, captions[0])
     wordtoix, ixtoword, bias_init_vector = preProBuildWordVocab(captions)
 
     learning_rate=0.001
