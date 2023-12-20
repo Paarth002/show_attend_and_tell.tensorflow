@@ -14,7 +14,7 @@ from keras.preprocessing import sequence
 class Caption_Generator():
 
     def init_weight(self, dim_in, dim_out, name=None, stddev=1.0):
-        return tf.Variable(tf.truncated_normal([dim_in, dim_out], stddev=stddev/math.sqrt(float(dim_in))), name=name)
+        return tf.Variable(tf.random.truncated_normal([dim_in, dim_out], stddev=stddev/math.sqrt(float(dim_in))), name=name)
 
     def init_bias(self, dim_out, name=None):
         return tf.Variable(tf.zeros([dim_out]), name=name)
