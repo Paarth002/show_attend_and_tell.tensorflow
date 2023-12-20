@@ -116,6 +116,7 @@ class Caption_Generator():
             weighted_context = tf.reduce_sum(context * tf.expand_dims(alpha, 2), 1)
 
             lstm_preactive = tf.matmul(h, self.lstm_U) + x_t + tf.matmul(weighted_context, self.image_encode_W)
+            print(lstm_preactive, type(lstm_preactive)
             i, f, o, new_c = tf.split(1, 4, lstm_preactive)
 
             i = tf.nn.sigmoid(i)
