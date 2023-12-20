@@ -12,6 +12,7 @@ import tensorflow.python.platform
 from keras.preprocessing import sequence
 
 tfc.disable_eager_execution()
+tf.disable_v2_behavior()
 
 class Caption_Generator():
 
