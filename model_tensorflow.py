@@ -12,7 +12,7 @@ import tensorflow.python.platform
 from keras.preprocessing import sequence
 
 tfc.disable_eager_execution()
-tf.disable_v2_behavior()
+# tf.disable_v2_behavior()
 
 class Caption_Generator():
 
@@ -271,9 +271,9 @@ def train(pretrained_model_path=pretrained_model_path): # 전에 학습하던게
             bias_init_vector=bias_init_vector)
 
     loss, context, sentence, mask = caption_generator.build_model()
-    saver = tf.train.Saver(max_to_keep=50)
+    saver = tfc.train.Saver(max_to_keep=50)
 
-    train_op = tf.train.AdamOptimizer(learning_rate).minimize(loss)
+    train_op = tfc.train.AdamOptimizer(learning_rate).minimize(loss)
     tf.initialize_all_variables().run()
     if pretrained_model_path is not None:
         print ("Starting with pretrained model")
