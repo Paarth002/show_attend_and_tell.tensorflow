@@ -88,7 +88,7 @@ class Caption_Generator():
             if ind == 0:
                 word_emb = tf.zeros([self.batch_size, self.dim_embed])
             else:
-                tf.get_variable_scope().reuse_variables()
+                tfc.get_variable_scope().reuse_variables()
                 with tf.device("/cpu:0"):
                     word_emb = tf.nn.embedding_lookup(self.Wemb, sentence[:,ind-1])
 
