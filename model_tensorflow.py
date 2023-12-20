@@ -11,6 +11,8 @@ import pandas as pd
 import tensorflow.python.platform
 from keras.preprocessing import sequence
 
+tfc.disable_eager_execution()
+
 class Caption_Generator():
 
     def init_weight(self, dim_in, dim_out, name=None, stddev=1.0):
