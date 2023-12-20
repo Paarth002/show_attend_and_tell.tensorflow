@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import os
-import cPickle
 from cnn_util import *
 
 vgg_model = '/home/taeksoo/Package/caffe/models/vgg/VGG_ILSVRC_19_layers.caffemodel'
