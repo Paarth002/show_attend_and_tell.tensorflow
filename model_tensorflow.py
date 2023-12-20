@@ -5,7 +5,6 @@ import ipdb
 import tensorflow as tf
 import numpy as np
 import pandas as pd
-import cPickle
 
 from tensorflow.models.rnn import rnn_cell
 import tensorflow.python.platform
