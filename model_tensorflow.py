@@ -272,9 +272,10 @@ def train(pretrained_model_path=pretrained_model_path): # 전에 학습하던게
 
     loss, context, sentence, mask = caption_generator.build_model()
     saver = tfc.train.Saver(max_to_keep=50)
-
+    trainable_vars=caption_generator.trainable_variables
+    
     # train_op = tf.train.AdamOptimizer(learning_rate).minimize(loss)
-    train_op = tf.optimizers.Adam(learning_rate).minimize(loss)
+    train_op = tf.optimizers.Adam(learning_rate).minimize(loss, var_list=trainable_vars)
     tf.initialize_all_variables().run()
     if pretrained_model_path is not None:
         print ("Starting with pretrained model")
