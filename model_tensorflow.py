@@ -3,6 +3,7 @@ import math
 import os
 import ipdb
 import tensorflow as tf
+import tensorflow.compat.v1 as tfc
 import numpy as np
 import pandas as pd
 
@@ -243,7 +244,7 @@ def train(pretrained_model_path=pretrained_model_path): # 전에 학습하던게
     feats = np.load(feat_path)
     maxlen = np.max( map(lambda x: len(x.split(' ')), captions) )
 
-    sess = tf.InteractiveSession()
+    sess = tfc.InteractiveSession()
 
     caption_generator = Caption_Generator(
             n_words=n_words,
@@ -305,7 +306,7 @@ def test(test_feat='./guitar_player.npy', model_path='./model/model-6', maxlen=2
     n_words = len(wordtoix)
     feat = np.load(test_feat).reshape(-1, ctx_shape[1], ctx_shape[0]).swapaxes(1,2)
 
-    sess = tf.InteractiveSession()
+    sess = tfc.InteractiveSession()
 
     caption_generator = Caption_Generator(
             n_words=n_words,
